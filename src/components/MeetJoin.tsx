@@ -5,6 +5,10 @@ import Dialog from '@mui/material/Dialog'
 import MicIcon from '@mui/icons-material/Mic';
 import HeadsetIcon from '@mui/icons-material/Headset';
 import { useNavigate } from 'react-router-dom';
+import Box from '@mui/material/Box';
+
+
+
 
 
 function MeetJoin() {
@@ -31,11 +35,14 @@ function MeetJoin() {
     <>
     {open ?
     <Dialog open={open} 
-    style={{maxWidth:"620px", 
-      height: '317px', 
-      top: '100px', 
+    sx={{
+      maxWidth:"620px", 
+ /*      height: '317px',  */
+ /*      top: '100px',  */
       borderRadius:'28px', 
-      left: '410px'}}
+    /*   left: '410px' */
+  
+    }}
     PaperProps={{
       style: {
         borderRadius:'28px',
@@ -43,15 +50,19 @@ function MeetJoin() {
         width: '100%',
         maxWidth: '100%', 
         maxHeight: '100%'
+        
       },
     }}>
       <div
-style={{display: 'flex',
-padding: '12px',
+style={{
+padding:'24px',
+gap:'16px',
+display: 'flex',
 flexDirection: 'column',
-alignItems: 'flex-start',
-gap: '8px',
-alignSelf: 'stretch',
+overflow:'hidden',
+
+  
+
 }}>
       <Typography 
       style={{color: '#112E3B',
@@ -78,7 +89,14 @@ alignSelf: 'stretch',
         Please choose if you want to participate in conversation
       </Typography>
       </div>
-      <List style={{height: '113px'}}>
+      <List style={{height: '113px',
+      gap:'16px',
+      display:'flex',
+      flexDirection:'column',
+      
+
+  
+    }}>
           <ListItem style={{height: '57px'}}>
               <ListItemIcon>
                 <MicIcon />
@@ -122,10 +140,22 @@ alignSelf: 'stretch',
     </Button>
       </div>
     </Dialog>
-     : <Button variant='outlined' onClick={handleOpen}>Join Meeting</Button> 
+     : <Box className ='joinBox' 
+     style={
+      {
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        height:'100vh',
+      }
+     }
+     >
+<Button variant='outlined' onClick={handleOpen}>Join Meeting</Button> 
+ </Box>
     }
     </>
   )
 }
+
 
 export default MeetJoin

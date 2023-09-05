@@ -35,6 +35,7 @@ flexDirection: 'column',
 alignItems: 'flex-start',
 gap: '16px',
 alignSelf: 'stretch',
+
 }}>
       <Typography style={{color: '#112E3B',
       fontFamily: 'Spline Sans',
