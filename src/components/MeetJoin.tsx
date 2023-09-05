@@ -32,7 +32,7 @@ function MeetJoin() {
     {open ?
     <Dialog open={open} 
     style={{maxWidth:"620px", 
-      height: '317px', 
+      //height: '317px', 
       top: '100px', 
       borderRadius:'28px', 
       left: '410px'}}
@@ -47,10 +47,10 @@ function MeetJoin() {
     }}>
       <div
 style={{display: 'flex',
-padding: '12px',
+padding: '24px',
 flexDirection: 'column',
 alignItems: 'flex-start',
-gap: '8px',
+gap: '16px',
 alignSelf: 'stretch',
 }}>
       <Typography 
@@ -60,7 +60,7 @@ alignSelf: 'stretch',
       fontStyle: 'normal',
       fontWeight: 400,
       lineHeight: '32px',
-      height: '32px'
+      // height: '32px'
       }}>
         How would you like to join?
       </Typography>
@@ -73,7 +73,7 @@ alignSelf: 'stretch',
         fontWeight: 400,
         lineHeight: '20px',
         letterSpacing: '0.25px',
-        height: '20px'
+        // height: '20px'
       }}>
         Please choose if you want to participate in conversation
       </Typography>

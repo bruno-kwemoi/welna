@@ -12,7 +12,8 @@ function SelectMic() {
     const handleClose = () => {
         setClose(false);
         navigate('/');
-    }
+    };
+    const handleNext = () => {navigate('MainApp')};
   return (
     <Dialog open={close}
     style={{maxWidth:"620px", 
@@ -84,7 +85,7 @@ alignSelf: 'stretch',
         height: '40px',
         borderRadius: '100px',
         gap: '8px'
-      }} variant='contained'>next</Button>
+      }} variant='contained' onClick={handleNext}>next</Button>
       </div>
     </Dialog>
   )
