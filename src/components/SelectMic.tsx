@@ -16,19 +16,17 @@ function SelectMic() {
     const handleNext = () => {navigate('MainApp')};
   return (
     <Dialog open={close}
-    style={{maxWidth:"620px", 
-      height: '270px', 
-      top: '100px', 
-      borderRadius:'28px', 
-      left: '410px'}}
+    sx={{
+      backgroundColor:'rgba(128,128,128,0.2)',
+    }}
     PaperProps={{
       style: {
+        display:'flex',
+        flexDirection:'column',
         borderRadius:'28px',
-        margin: 0,
-        width: '100%',
-        maxWidth: '100%', 
-        maxHeight: '100%'
-      },}}>
+        width: '620px', 
+        minHeight: '270px'
+      }}}>
       <div
 style={{display: 'flex',
 padding: '24px',
@@ -45,16 +43,7 @@ alignSelf: 'stretch',
       lineHeight: '32px',
       height: '32px'
       }}>Select Microphone</Typography>
-      <Typography  style={{
-        color: '#434343',
-        fontFamily: 'Spline Sans',
-        fontSize: '14px',
-        fontStyle: 'normal',
-        fontWeight: 400,
-        lineHeight: '20px',
-        letterSpacing: '0.25px',
-        height: '20px'
-      }}>Please choose which microphone would you like to use</Typography>
+    
       </div>
       <Autocomplete disableClearable options={options} renderInput={(params) => <TextField {...params} InputProps={{
             ...params.InputProps,
