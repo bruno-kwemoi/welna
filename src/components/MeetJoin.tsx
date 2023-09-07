@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import {
   Button,
-  Backdrop,
   Box,
-  Container,
-  Divider,
   List,
   ListItem,
 } from "@mui/material";
@@ -47,7 +44,7 @@ function MeetJoin() {
               width: "620px",
               borderRadius: "28px",
               display: "flex",
-        
+
               alignItems: "flexStart",
               justifyContent: "flexStart",
 
@@ -63,10 +60,10 @@ function MeetJoin() {
           >
             <Typography
               sx={{
-               padding:'24px',  
-               fontSize:'24px',
-               fontWeight:'400',
-               lineHeight:'32px', 
+                padding: '24px',
+                fontSize: '24px',
+                fontWeight: '400',
+                lineHeight: '32px',
               }}
             >
               How would you like to join?
@@ -76,15 +73,15 @@ function MeetJoin() {
             sx={{
               paddingTop: "0",
               display: "flex",
-           alignItems:'flex-end',   
-            flexDirection: "column",
+              alignItems: 'flex-end',
+              flexDirection: "column",
               maxHeight: "201px",
             }}
           >
             <ListItem
               style={{
                 padding: "24px",
-             maxHeight: "56px",
+                maxHeight: "56px",
               }}
             >
               <ListItemIcon>
@@ -102,7 +99,7 @@ function MeetJoin() {
 
             <ListItem
               sx={{
-                padding:'24px',
+                padding: '24px',
                 maxHeight: "57px",
               }}
             >
@@ -119,44 +116,44 @@ function MeetJoin() {
               />
             </ListItem>
           </List>
-<div
-style={{
-  maxHeight:'88px',
-  width:'100%',
-display:'flex',
-
-gap:'0.5rem',
-justifyContent:'flex-end',
-alignItems:'center',
-padding:' 24px 10px 24px 10px',
-
-
-}}
->
-          <Button onClick={handleClose}>cancel</Button>
-          <Button
-            variant="contained"
-            onClick={handleNavigation}
+          <div
             style={{
-            marginRight:'24px',
-              borderRadius: "100px",
-             
+              maxHeight: '88px',
+              width: '100%',
+              display: 'flex',
+
+              gap: '0.5rem',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+              padding: ' 24px 10px 24px 10px',
+
+
             }}
           >
-            next
-          </Button>
+            <Button onClick={handleClose}>cancel</Button>
+            <Button
+              variant="contained"
+              onClick={handleNavigation}
+              style={{
+                marginRight: '24px',
+                borderRadius: "100px",
+
+              }}
+            >
+              next
+            </Button>
           </div>
         </Dialog>
       ) : (
-       
+
         <Box
-           sx={{
-             overflow:'hidden',
+          sx={{
+            overflow: 'hidden',
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-          height: "90vh",
-            
+            height: "90vh",
+
           }}
         >
           {" "}
@@ -164,7 +161,7 @@ padding:' 24px 10px 24px 10px',
             Join Meeting
           </Button>{" "}
         </Box>
-    
+
       )}
     </>
   );
