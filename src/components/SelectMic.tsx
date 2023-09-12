@@ -13,7 +13,7 @@ function SelectMic() {
         setClose(false);
         navigate('/');
     };
-    const handleNext = () => {navigate('MainApp')};
+    const handleNext = () => {navigate('/MainApp',{replace: true})};
   return (
     <Dialog open={close}
     sx={{
@@ -69,10 +69,8 @@ alignSelf: 'stretch',
         alignSelf: 'stretch'
         }}>
       <Button onClick={handleClose}>cancel</Button>
-      <Button style={{
+      <Button sx={{
         width: '78px',
-        height: '40px',
-        borderRadius: '100px',
         gap: '8px'
       }} variant='contained' onClick={handleNext}>next</Button>
       </div>

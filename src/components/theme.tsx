@@ -10,7 +10,8 @@ const theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    borderRadius: '100px'
+                    borderRadius: '100px',
+                    textTransform: 'unset'
                 },
                 outlinedPrimary: {
                     borderRadius: '0px'

@@ -1,168 +1,94 @@
-import React, { useState } from "react";
-import {
-  Button,
-  Box,
-  List,
-  ListItem,
-} from "@mui/material";
-import { ListItemIcon, ListItemText, Radio, Typography } from "@mui/material";
-import Dialog from "@mui/material/Dialog";
-import MicIcon from "@mui/icons-material/Mic";
-import HeadsetIcon from "@mui/icons-material/Headset";
-import { useNavigate } from "react-router-dom";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import { styled, alpha } from '@mui/material/styles';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Avatar, Stack } from '@mui/material';
+import Profile from './Profile';
+import ChatWindow from './ChatWindow';
+import ChatList from './ChatList';
+import TemporaryDrawer from './SideBar';
+
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: '18px',
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
 
 function MeetJoin() {
-  const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
-  const [selectedValue, setSelectedValue] = React.useState("a");
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleNavigation = () => {
-    setOpen(false);
-    navigate("SelectMic");
-  };
   return (
     <>
-      {open ? (
-        <Dialog
-          open={open}
-          style={{
-            backgroundColor: "rgba(128,128,128,0.2)",
-          }}
-          PaperProps={{
-            style: {
-              height: "281px",
-              width: "620px",
-              borderRadius: "28px",
-              display: "flex",
-
-              alignItems: "flexStart",
-              justifyContent: "flexStart",
-
-              overflow: "hidden",
-            },
-          }}
-        >
-          <div
-            style={{
-              height: "auto",
-              width: "100%",
-            }}
-          >
-            <Typography
-              sx={{
-                padding: '24px',
-                fontSize: '24px',
-                fontWeight: '400',
-                lineHeight: '32px',
-              }}
+      <AppBar position="static">
+        <Toolbar>
+          <Search>
+            <SearchIconWrapper>
+              <MenuIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Hinted search text"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+            <IconButton color='inherit'>
+              <SearchIcon />
+            </IconButton>
+          </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
             >
-              How would you like to join?
-            </Typography>
-          </div>
-          <List
-            sx={{
-              paddingTop: "0",
-              display: "flex",
-              alignItems: 'flex-end',
-              flexDirection: "column",
-              maxHeight: "201px",
-            }}
-          >
-            <ListItem
-              style={{
-                padding: "24px",
-                maxHeight: "56px",
-              }}
-            >
-              <ListItemIcon>
-                <MicIcon />
-              </ListItemIcon>
-              <ListItemText primary="Microphone" />
-              <Radio
-                checked={selectedValue === "a"}
-                onChange={handleChange}
-                value="a"
-                name="radio-buttons"
-                inputProps={{ "aria-label": "A" }}
-              />
-            </ListItem>
-
-            <ListItem
-              sx={{
-                padding: '24px',
-                maxHeight: "57px",
-              }}
-            >
-              <ListItemIcon>
-                <HeadsetIcon />
-              </ListItemIcon>
-              <ListItemText primary="Listen Only" />
-              <Radio
-                checked={selectedValue === "b"}
-                onChange={handleChange}
-                value="b"
-                name="radio-buttons"
-                inputProps={{ "aria-label": "B" }}
-              />
-            </ListItem>
-          </List>
-          <div
-            style={{
-              maxHeight: '88px',
-              width: '100%',
-              display: 'flex',
-
-              gap: '0.5rem',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              padding: ' 24px 10px 24px 10px',
-
-
-            }}
-          >
-            <Button onClick={handleClose}>cancel</Button>
-            <Button
-              variant="contained"
-              onClick={handleNavigation}
-              style={{
-                marginRight: '24px',
-                borderRadius: "100px",
-
-              }}
-            >
-              next
-            </Button>
-          </div>
-        </Dialog>
-      ) : (
-
-        <Box
-          sx={{
-            overflow: 'hidden',
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "90vh",
-
-          }}
-        >
-          {" "}
-          <Button variant="outlined" onClick={handleOpen}>
-            Join Meeting
-          </Button>{" "}
-        </Box>
-
-      )}
+              <NotificationsIcon />
+            </IconButton>
+            <Avatar src='src/assets/3d_avatar_3.png'/>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Stack sx={{ flexDirection: 'row' }}>
+        <TemporaryDrawer />
+        <ChatList />
+        <ChatWindow />
+        <Profile />
+      </Stack>
     </>
   );
 }
