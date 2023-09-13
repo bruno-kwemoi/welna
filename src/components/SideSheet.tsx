@@ -16,22 +16,41 @@ function SideSheet() {
 
     return (
         <Container sx={{
+            position:'relative',
+        
             display: 'flex',
-            width: '320px',
-            height: '876px',
-            paddingBottom: '0px',
+            maxWidth: '320px',
+            maxHeight: '876px',
             flexDirection: 'column',
-            alignItems: 'flex-start',
-            flexShrink: 0
+            alignItems: 'center',
+            justifyContent:'flex-start',
+            alignContent:'flex-start',
         }}>
-            <ButtonGroup variant="contained"
-                sx={{ borderRadius: '100px', mt: '8px', mb: '8px', backgroundColor: '#D6F3F7' }}>
-                <Button onClick={handleParticipant} startIcon={<CheckIcon />} sx={{ borderRadius: '100px' }}>Participants</Button>
-                <Button onClick={handlePoll} sx={{ borderRadius: '100px' }}>Polls</Button>
-            </ButtonGroup>
+          
+            <ButtonGroup 
+                sx={{ 
+                  padding:'20px  16px 20px 16px',
+                
+                 }}>
+                <Button onClick={handleParticipant} startIcon={<CheckIcon />} sx={{ backgroundColor:'#D6F3F7',
+                    width:'143.5px',
+                    borderRadius: '50px' }}>Participants</Button>
+                <Button onClick={handlePoll} sx={{ borderLeft:'1px solid grey',
+                    borderRadius: '50px',backgroundColor:'#D6F3F7',
+              width:'143.5px',
+            }}>Polls</Button>
+            </ButtonGroup>  
             { isParticipant ?
+            
+          
             <div>
-            <TextField variant="outlined"
+            
+            <TextField 
+            sx={{
+               display:'flex',
+                alignItems:'center',
+                gap:'1rem'
+            }}
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">
@@ -39,11 +58,18 @@ function SideSheet() {
                         </InputAdornment>
                     ),
                 }} />
-            <List>
+            <List sx={{
+               
+                minWidth:'319px',
+                
+            }}>
                 <ListItem disablePadding>
+             
                     <ListItemButton>
                         <ListItemIcon>
-                            <Avatar>A</Avatar>
+                        
+                            <Avatar sx={{
+                                backgroundColor:'#D6F3F7',color:'rgba(38, 155, 180, 1)',}}>A</Avatar>
                         </ListItemIcon>
                         <ListItemText primary="You | Kitty Wang" />
                     </ListItemButton>
@@ -52,11 +78,12 @@ function SideSheet() {
             </div> :
             <Stack sx={{justifyContent: 'center', alignItems: 'center'}}>
             <Button>No Polls</Button>
-            <Button sx={{borderRadius: '100px'}} variant='contained' startIcon={<AddIcon/>}>New Poll</Button>
+            <Button sx={{borderRadius: '100px'}}  startIcon={<AddIcon/>}>New Poll</Button>
             </Stack>
             }
-            <div style={{ position: 'absolute', bottom: '0' }}>
-                <Button>Close</Button>
+            <div  
+             style={{ minWidth:'319px', position: 'absolute', bottom: '10%', alignItems:'flexStart', paddingLeft:'24px',display:'flex', color:'white', }}>
+                <Button variant='outlined' sx={{borderRadius:'42px',}}>Close</Button>
             </div>
         </Container>
     )

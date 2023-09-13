@@ -24,8 +24,9 @@ export default function MainApp() {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <TopBar />
-            <div style={{ display: 'flex', outlineColor: '#D6F3F7', }}>
-                <Container
+            <div style={{ display: 'flex', justifyContent:'space-between', outlineColor: '#D6F3F7', gap:'3.25rem' }}>
+                <div style={{}}>
+                    <Container
                     sx={{
                         display: 'flex',
                         flexDirection: 'column',
@@ -35,7 +36,8 @@ export default function MainApp() {
                         paddingTop: '24px', // Add paddingTop to control the space at the top
                         border: '1px solid #269BB4',
                         position: 'relative', // Add position relative to contain absolutely positioned elements
-                        height: '580px',
+                        minHeight: '580px',
+                        minWidth:'1036px',
                         borderRadius: '24px',
                         margin: '24px'
                     }}
@@ -82,7 +84,7 @@ export default function MainApp() {
                     >
                         MN
                     </Avatar>
-                </Container>
+                </Container></div>
                 <SideSheet />
                 <Backdrop
                     sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
