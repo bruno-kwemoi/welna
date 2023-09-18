@@ -18,6 +18,7 @@ import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutline
 import TodayIcon from '@mui/icons-material/Today';
 import { HomeOutlined, Logout, Settings } from "@mui/icons-material";
 import { Badge } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -72,6 +73,7 @@ const Drawer = styled(MuiDrawer, {
 export default function SideBar() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate();
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -79,6 +81,10 @@ export default function SideBar() {
 
     const handleDrawerClose = () => {
         setOpen(false);
+    };
+
+    const handleNavigate = () => {
+        navigate('/Login');
     };
 
     return (
@@ -211,6 +217,7 @@ export default function SideBar() {
                     </ListItem>
                     <ListItem disablePadding sx={{ display: "block" }}>
                         <ListItemButton
+                            onClick={handleNavigate}
                             sx={{
                                 minHeight: 48,
                                 justifyContent: open ? "initial" : "center",

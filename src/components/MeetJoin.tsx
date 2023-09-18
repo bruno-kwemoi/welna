@@ -11,7 +11,7 @@ import { Avatar, Stack } from '@mui/material';
 import Profile from './Profile';
 import ChatWindow from './ChatWindow';
 import ChatList from './ChatList';
-import TemporaryDrawer from './SideBar';
+import SideBar from './SideBar';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -84,7 +84,7 @@ function MeetJoin() {
         </Toolbar>
       </AppBar>
       <Stack sx={{ flexDirection: 'row' }}>
-        <TemporaryDrawer />
+        <SideBar />
         <ChatList />
         <ChatWindow />
         <Profile />
